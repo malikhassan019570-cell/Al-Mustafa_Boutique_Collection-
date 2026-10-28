@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Mustafa Boutique Collection</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #8b0032; /* Deep Boutique Maroon */
+            --gold-color: #d4af37;    /* Elegant Gold */
+            --dark-color: #1a1a1a;
+            --light-color: #f9f6f0;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--gold-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--gold-color);
+            color: #000;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* About Us Section */
+        .about-section {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 40px 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .about-section h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 850px;
+            margin: 0 auto 20px auto;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .feature-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            background: var(--light-color);
+            border-radius: 8px;
+            border-top: 3px solid var(--gold-color);
+        }
+
+        .feature-box i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .feature-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        /* Collection Section */
+        .products {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+
+        .price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Product Detail View Page Styles */
+        #detail-view {
+            display: none;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .detail-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .detail-img-box {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .detail-img-box img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            max-height: 550px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .detail-info-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .detail-info-box h2 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .detail-info-box .detail-price {
+            color: var(--gold-color);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .detail-info-box .detail-desc {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            background: var(--light-color);
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            background-color: #666;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: var(--dark-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .detail-wrapper { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="navbar">
+            <div class="logo" onclick="showMainPage()">Al-Mustafa <span>Boutique Collection</span></div>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="showMainPage()">Home</a></li>
+                <li><a href="#about" onclick="showMainPage()">About Us</a></li>
+                <li><a href="#collection" onclick="showMainPage()">Collection</a></li>
+                <li><a href="#contact" onclick="showMainPage()">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div id="main-view">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <h1>Al-Mustafa Boutique Collection</h1>
+            <p>Exclusive Luxury Couture & Designer Suits</p>
+            <a href="#collection" class="btn">Explore Collection</a>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="about-section" id="about">
+            <h2>About Our Collection</h2>
+            <p>
+                <strong>Al-Mustafa Boutique Collection</strong> par hum aapke liye laye hain sabse unique, stylish aur premium quality designer dresses. Hamari collection mein heavy embroidered Anarkali frocks, luxury bridal maxis, sequence party dresses aur trending sharara sets shamil hain. Hum har suit ke fabric quality aur fine stitching ka khass khayal rakhte hain taake aapko mile ek shaandar look.
+            </p>
+            <div class="about-features">
+                <div class="feature-box">
+                    <i class="fas fa-gem"></i>
+                    <h3>Premium Quality</h3>
+                    <p>Umdah kapda aur bareek embroidery work.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Exclusive Designs</h3>
+                    <p>Naye aur trending designer dresses ka intikhab.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-truck"></i>
+                    <h3>Easy Ordering</h3>
+                    <p>Direct WhatsApp ke zariye aasan order booking.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collection Section -->
+        <section class="products" id="collection">
+            <h2 class="section-title">Exclusive Collection</h2>
+            <div class="grid">
+                
+                <!-- Item 1 -->
+                <div class="product-card" onclick="openDetails('peach-frock')">
+                    <img src="WhatsApp Image 2026-09-12 at 4.03.27 PM.jpeg" alt="Peach Embroidered Long Dress">
+                    <div class="product-info">
+                        <h3 class="product-title">Timeless Elegance Peach Frock</h3>
+                        <div class="price">PKR 12,500</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="product-card" onclick="openDetails('maroon-maxi')">
+                    <img src="WhatsApp Image 2026-09-12 at 4.03.28 PM.jpeg" alt="Maroon Sequins Dress">
+                    <div class="product-info">
+                        <h3 class="product-title">Maroon Sequins Bridal Maxi</h3>
+                        <div class="price">PKR 14,000</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="product-card" onclick="openDetails('sky-blue-dress')">
+                    <img src="itam.jpeg" alt="Sky Blue Net Designer Dress">
+                    <div class="product-info">
+                        <h3 class="product-title">Sky Blue Net Designer Dress</h3>
+                        <div class="price">PKR 10,800</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="product-card" onclick="openDetails('ice-blue-gown')">
+                    <img src="Screenshot_2026-10-15-14-52-36-24.jpg" alt="Ice Blue Dress">
+                    <div class="product-info">
+                        <h3 class="product-title">Ice Blue Embroidered Gown</h3>
+                        <div class="price">PKR 11,500</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="product-card" onclick="openDetails('pastel-blue-suit')">
+                    <img src="Screenshot_2026-10-15-14-56-38-02.jpg" alt="Pastel Blue Jacket Suit">
+                    <div class="product-info">
+                        <h3 class="product-title">Pastel Blue Jacket Style Suit</h3>
+                        <div class="price">PKR 9,800</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="product-card" onclick="openDetails('emerald-green-anarkali')">
+                    <img src="Screenshot_2026-10-15-14-56-46-63.jpg" alt="Bottle Green Anarkali">
+                    <div class="product-info">
+                        <h3 class="product-title">Emerald Green Royal Anarkali</h3>
+                        <div class="price">PKR 13,200</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="product-card" onclick="openDetails('magenta-pink-anarkali')">
+                    <img src="Screenshot_2026-10-15-15-06-30-73.jpg" alt="Magenta Pink Anarkali">
+                    <div class="product-info">
+                        <h3 class="product-title">Magenta Pink Luxury Anarkali</h3>
+                        <div class="price">PKR 12,000</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="product-card" onclick="openDetails('sky-blue-sharara')">
+                    <img src="WhatsApp Image 2026-09-12 at 4.03.27 PM (1).jpeg" alt="Sky Blue Sharara Set">
+                    <div class="product-info">
+                        <h3 class="product-title">Sky Blue Embroidered Sharara Set</h3>
+                        <div class="price">PKR 11,200</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 9 -->
+                <div class="product-card" onclick="openDetails('golden-festive-anarkali')">
+                    <img src="29165694-b973-433d-9887-93a476127b47.jpg" alt="Golden Festive Anarkali">
+                    <div class="product-info">
+                        <h3 class="product-title">Golden Festive Embroidered Suit</h3>
+                        <div class="price">PKR 13,500</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 10 -->
+                <div class="product-card" onclick="openDetails('royal-purple-suit')">
+                    <img src="df24e0ce-2e41-4d3f-8db2-0ebbca57b74a.jpg" alt="Royal Purple Luxury Suit">
+                    <div class="product-info">
+                        <h3 class="product-title">Royal Purple Luxury Kurta Set</h3>
+                        <div class="price">PKR 11,900</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 11 -->
+                <div class="product-card" onclick="openDetails('teal-blue-velvet-sharara')">
+                    <img src="b43c3b29-7e0c-4461-b77f-16e9be03c7d7.jpg" alt="Teal Blue Velvet Sharara Suit">
+                    <div class="product-info">
+                        <h3 class="product-title">Teal Blue Velvet Embroidered Sharara</h3>
+                        <div class="price">PKR 14,500</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+                <!-- Item 12 -->
+                <div class="product-card" onclick="openDetails('deep-green-anarkali')">
+                    <img src="dbd015da-826b-41de-947a-24ff05ab6300.jpg" alt="Deep Emerald Green Anarkali">
+                    <div class="product-info">
+                        <h3 class="product-title">Deep Emerald Green Royal Maxi</h3>
+                        <div class="price">PKR 13,800</div>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Product Detail Section Page -->
+    <section id="detail-view">
+        <button class="back-btn" onclick="showMainPage()"><i class="fas fa-arrow-left"></i> Back to Collection</button>
+        <div class="detail-wrapper">
+            <div class="detail-img-box">
+                <img id="detail-img" src="" alt="Product Image">
+            </div>
+            <div class="detail-info-box">
+                <h2 id="detail-title">Product Title</h2>
+                <div class="detail-price" id="detail-price">PKR 0</div>
+                <div class="detail-desc" id="detail-desc">
+                    Product Description yahan show hogi.
+                </div>
+                <a href="#" id="detail-whatsapp-link" class="btn" target="_blank" style="background-color: #25d366; color: white;">
+                    <i class="fab fa-whatsapp"></i> Order On WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2026 <strong>Al-Mustafa Boutique Collection</strong>. All Rights Reserved.</p>
+        <p>Contact Us: +92 322 3010959 | Location: Pakistan</p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923223010959" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript for Page Switching & Dynamic Data -->
+    <script>
+        const productsData = {
+            "teal-blue-velvet-sharara": {
+                title: "Teal Blue Velvet Embroidered Sharara",
+                price: "PKR 14,500",
+                image: "b43c3b29-7e0c-4461-b77f-16e9be03c7d7.jpg",
+                desc: "1. Yeh shandar Teal Blue Velvet Sharara suit premium quality ki narm aur mulayam velvet fabric par tayyar kiya gaya hai.<br>2. Iske kurti aur ghairdaar sharara par nihayat bareek thread work, sitaron aur dhabkay ki khubsurat embroidery ki gayi hai.<br>3. Iske sath mukammalheavy embroidered dupatta diya gaya hai jo iski shaan ko mazeed barha deta hai.<br>4. Yeh design khaas taur par shaadi ke functions, walima ya kisi bhi bari party ke liye behtareen aur shandar choice hai.<br>5. Iski fine stitching aur comfortable fitting aapko ek royal aur elegant look faraham karti hai."
+            },
+            "deep-green-anarkali": {
+                title: "Deep Emerald Green Royal Maxi",
+                price: "PKR 13,800",
+                image: "dbd015da-826b-41de-947a-24ff05ab6300.jpg",
+                desc: "1. Deep Emerald Green rang ki yeh royal Anarkali maxi pure aur high-class chiffon fabric mein pesh ki gayi hai.<br>2. Dress ke gale aur gher par gorgeous gold dabka, tilla aur naqashi ka haath ka kaam kiya gaya hai.<br>3. Iska ghairdaar style pehne ke baad ek bohat hi dilkash aur heavy festive look deta hai.<br>4. Mehndiyon, dholki ya kisi bhi roshan tehwar ke liye yeh aik lajawab aur trendy dress hai.<br>5. Umdah silai aur premium quality material ki wajah se yeh aapki wardrobe ki sabse khubsurat zeenat banegi."
+            },
+            "peach-frock": {
+                title: "Timeless Elegance Peach Frock",
+                price: "PKR 12,500",
+                image: "WhatsApp Image 2026-09-12 at 4.03.27 PM.jpeg",
+                desc: "1. Yeh Timeless Elegance Peach Frock halkay aur najeef net fabric par barik kashidakari ke sath tayyar ki gayi hai.<br>2. Iska peach rang aur nazuk phoolon wala design ankhon ko sukoon deta hai aur ek graceful look deta hai.<br>3. Iske sath mukammal liner aur matching dupatta shamil hai jo pehnne mein behad comfortable hai.<br>4. Formal dinners aur evening gatherings ke liye yeh ek perfect aur modern choice mani jati hai.<br>5. High quality fabric aur finest finish ki wajah se yeh long lasting aur stylish outfit hai."
+            },
+            "maroon-maxi": {
+                title: "Maroon Sequins Bridal Maxi",
+                price: "PKR 14,000",
+                image: "WhatsApp Image 2026-09-12 at 4.03.28 PM.jpeg",
+                desc: "1. Heavy sequins aur rich maroon shade ke sath yeh bridal maxi shadiyon ke liye ek timeless masterpiece hai.<br>2. Iske upper bodice aur gher par chamakdar sitaron ka bharpoor kaam kiya gaya hai jo roshni mein chamakta hai.<br>3. Traditional bridal look chahne walon ke liye yeh ek ideal aur budget-friendly luxury dress hai.<br>4. Iska soft inner fabric aur mazboot stitching ise pehnne mein nihayat asan aur pur-sakoon banati hai.<br>5. Aap is khubsurat maxi ko pehan kar kisi bhi bade function mein sab ki tawajjo ka markaz ban sakti hain."
+            },
+            "sky-blue-dress": {
+                title: "Sky Blue Net Designer Dress",
+                price: "PKR 10,800",
+                image: "itam.jpeg",
+                desc: "1. Halka phulka aur dilkash sky blue net designer dress jo modern fashion trends ke ayn mutabiq hai.<br>2. Is dress par motiyon aur resham ke dhagoon ki bareek naqashi dekhne se talluq rakhti hai.<br>3. Garmi ke mausam ya din ke kisi bhi formal function ke liye yeh rang behad taza aur khobsoorat lagta hai.<br>4. Iske sath light-weight embroidered dupatta suit ki khubsurat look ko mukammal karta hai.<br>5. Shandar fitting aur umdah quality ki badolat yeh aapki pehli pasand banne ki salahiyat rakhti hai."
+            },
+            "ice-blue-gown": {
+                title: "Ice Blue Embroidered Gown",
+                price: "PKR 11,500",
+                image: "Screenshot_2026-10-15-14-52-36-24.jpg",
+                desc: "1. Ice Blue rang ka yeh long gown formal events aur modern evening parties ke liye lajawab option hai.<br>2. Iske flare par aur shoulders ki side par modern cuts aur fine embroidery ka istemal kiya gaya hai.<br>3. Jo khawateen contemporary aur western touch ke sath eastern wear pasand karti hain unke liye best hai.<br>4. Premium fabric ki waja se yeh body par bohat graceful aur smart look deta hai.<br>5. Iski exceptional stitching aur unique color combination ise baqi dresses se alag banata hai."
+            },
+            "pastel-blue-suit": {
+                title: "Pastel Blue Jacket Style Suit",
+                price: "PKR 9,800",
+                image: "Screenshot_2026-10-15-14-56-38-02.jpg",
+                desc: "1. Modern fashion trend ko madde-nazar rakhte huay jacket style mein tayyar kiya gaya pastel blue suit hai.<br>2. Is par halki phulki kashidakari aur unique buttons ki detailings di gayi hain jo isay stylish banati hain.<br>3. College, university events ya casual festive parties ke liye yeh ek decent aur classy outfit hai.<br>4. Iska halka phulka fabric aur asan carrying style ise har umar ki khawateen ke liye mufeed banata hai.<br>5. Behtareen value for money aur trendy look ke sath yeh aapke wardrobe ki zeenat banega."
+            },
+            "emerald-green-anarkali": {
+                title: "Emerald Green Royal Anarkali",
+                price: "PKR 13,200",
+                image: "Screenshot_2026-10-15-14-56-46-63.jpg",
+                desc: "1. Heavy border aur traditional Mughal design ke sath bottle green rang ka yeh anarkali suit lajawab hai.<br>2. Daaman par gold aur multi-color ki heavy embroidery isay aik royal aur heavy look deti hai.<br>3. Shadi byah ya dholki ke programs ke liye yeh ek aisi dress hai jo kabhi out of fashion nahi hoti.<br>4. Iska comfortable gher aur premium fabric pehnne wale ko mukammal ease faraham karta hai.<br>5. Classic traditional styling pasand karne walon ke liye yeh ekmust-buy product hai."
+            },
+            "magenta-pink-anarkali": {
+                title: "Magenta Pink Luxury Anarkali",
+                price: "PKR 12,000",
+                image: "Screenshot_2026-10-15-15-06-30-73.jpg",
+                desc: "1. Bright aur vibrant magenta pink color mein tayyar shuda heavy embroidery wala luxury anarkali dress.<br>2. Iska rang khud hi itna khila hua hai ke mehfil ki jaan ban jata hai aur har skin tone par suit karta hai.<br>3. Gala aur sleeves par ki gayi najeef kadhai iski khubsurat craftsmanship ka pata deti hai.<br>4. Har qisam ki festive occasions aur family gatherings ke liye yeh aik shandar choice hai.<br>5. Umdah material aur paki silai ki guarantee ke sath aapko milta hai ek perfect look."
+            },
+            "sky-blue-sharara": {
+                title: "Sky Blue Embroidered Sharara Set",
+                price: "PKR 11,200",
+                image: "WhatsApp Image 2026-09-12 at 4.03.27 PM (1).jpeg",
+                desc: "1. Trending sharara cuts aur fine thread work par mushtamil sky blue traditional sharara set.<br>2. Iska short kurta aur khula hua sharara pehnne mein behad comfortable aur style mein number one hai.<br>3. Young girls ke liye yeh wedding functions aur festive days par wear karne ke liye ideal outfit hai.<br>4. Iska halka aur saaf suthra kaam iski khoobsurati ko mazeed do-bala kar deta hai.<br>5. Aasan order booking aur zabardast quality ke sath Al-Mustafa Boutique ki special peshkish."
+            },
+            "golden-festive-anarkali": {
+                title: "Golden Festive Embroidered Suit",
+                price: "PKR 13,500",
+                image: "29165694-b973-433d-9887-93a476127b47.jpg",
+                desc: "1. Shandar golden festive look wala yeh suit mehndiyon, barat aur bari festive gatherings ke liye behtareen hai.<br>2. Pure fabric par gold tilla work aur sitaron ki chamak isay ek shahi libaas banati hai.<br>3. Iske sath matching dupatta aur trouser dress ki poori look ko 10 mukammal karte hain.<br>4. Har qisam ke zevarat aur jewelleries ke sath yeh golden suit bohat khubsurat lagta hai.<br>5. Premium stitching aur high-end boutique quality jo aapki expectations par poori utregi."
+            },
+            "royal-purple-suit": {
+                title: "Royal Purple Luxury Kurta Set",
+                price: "PKR 11,900",
+                image: "df24e0ce-2e41-4d3f-8db2-0ebbca57b74a.jpg",
+                desc: "1. Deep royal purple shade mein elegant embroidery aur finest stitching ke sath luxury kurta set.<br>2. Purple color ki yeh gehraai aur us par silver/gold thread ka kaam iski khoobsurati mein jaan daal deta hai.<br>3. Evening dinners, party wear aur formal meetings ke liye yeh ek unique aur decent libaas hai.<br>4. Iski soft lining aur smooth fabric skin ke liye behad naram aur comfortable hai.<br>5. Apni shakhsiyat ko ek royal touch dene ke liye aaj hi isay apnay collection ka hissa banayein."
+            }
+        };
+
+        function openDetails(productKey) {
+            const product = productsData[productKey];
+            if (product) {
+                document.getElementById('detail-img').src = product.image;
+                document.getElementById('detail-title').innerText = product.title;
+                document.getElementById('detail-price').innerText = product.price;
+                document.getElementById('detail-desc').innerHTML = product.desc;
+                
+                // WhatsApp Order Link set karna
+                const whatsappUrl = `https://wa.me/923223010959?text=Mujhe ${encodeURIComponent(product.title)} order karna hai`;
+                document.getElementById('detail-whatsapp-link').href = whatsappUrl;
+
+                // Views switch karna
+                document.getElementById('main-view').style.display = 'none';
+                document.getElementById('detail-view').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function showMainPage() {
+            document.getElementById('detail-view').style.display = 'none';
+            document.getElementById('main-view').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
